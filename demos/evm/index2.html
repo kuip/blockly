@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google" value="notranslate">
+  <title>Blockly Demo:</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="storage.js"></script>
+ 
+  <script src="../../blockly_compressed.js"></script>
+  <script src="../../javascript_compressed.js"></script>
+  <script src="../../blocks_compressed.js"></script>
+  
+  <script src="cblocks.js"></script>
+  
+  <script src="code.js"></script>
+</head>
+<body>
+  <table width="100%" height="100%">
+    <tr>
+      <td>
+        <h1><a href="https://developers.google.com/blockly/">Blockly</a>&rlm; &gt;
+          <a href="../index.html">Demos</a>&rlm; &gt;
+          <span id="title">...</span>
+        </h1>
+      </td>
+      <td class="farSide">
+        <select id="languageMenu"></select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <table width="100%">
+          <tr id="tabRow" height="1em">
+            <td id="tab_blocks" class="tabon">...</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_javascript" class="taboff">JavaScript</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_evm" class="taboff">EVM</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_xml" class="taboff">XML</td>
+            <td class="tabmax">
+              <button id="trashButton" class="notext" title="...">
+                <img src='../../media/1x1.gif' class="trash icon21">
+              </button>
+              <button id="linkButton" class="notext" title="...">
+                <img src='../../media/1x1.gif' class="link icon21">
+              </button>
+              <button id="runButton" class="notext primary" title="...">
+                <img src='../../media/1x1.gif' class="run icon21">
+              </button>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="99%" colspan=2 id="content_area">
+      </td>
+    </tr>
+  </table>
+  <div id="content_blocks" class="content"></div>
+  <pre id="content_javascript" class="content"></pre>
+  <pre id="content_evm" class="content"></pre>
+  <textarea id="content_xml" class="content" wrap="off"></textarea>
+
+  <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
+    <category name="Types" colour="#5ba55b">
+      <block type="text">
+        <field name="TEXT"></field>
+      </block>
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+      <block type="hexa_types">
+        <field name="TEXT"></field>
+      </block>
+      <block type="tag_types">
+        <field name="TEXT"></field>
+      </block>
+      <block type="hex_types">
+        <field name="TEXT"></field>
+      </block>
+    </category>
+    <category name="Variables" colour="#A65C81" custom="VARIABLE"></category>
+    <category name="Math" colour="#5b6da5">
+      <block type="stop_math"></block>
+      <block type="add_math"></block>
+      <block type="sub_math"></block>
+      <block type="mul_math"></block>
+      <block type="mod_math"></block>
+      <block type="addmod_math"></block>
+      <block type="mulmod_math"></block>
+      <block type="smod_math"></block>
+      <block type="div_math"></block>
+      <block type="sdiv_math"></block>
+      <block type="exp_math"></block>
+      <block type="signextend_math"></block>
+      <block type="sha3_logic"></block>
+      <block type="keccak256_math"></block>
+      <block type="keccak256xx_math">
+        <field name="name">0</field>
+        <field name="address">40</field>
+      </block>
+      <block type="iadd_math"></block>
+      <block type="inline_math"></block>
+      <block type="l_math_add"></block>
+      <block type="l_math_sub"></block>
+      <block type="l_math_mul"></block>
+      <block type="l_math_div"></block>
+      
+    </category>
+    <category name="Logic" colour="#a5935b">
+      <block type="lt_logic"></block>
+      <block type="gt_logic"></block>
+      <block type="and_logic"></block>
+      <block type="or_logic"></block>
+      <block type="slt_logic"></block>
+      <block type="sgt_logic"></block>
+      <block type="xor_logic"></block>
+      <block type="eq_logic"></block>
+      <block type="not_logic"></block>
+      <block type="iszero_logic"></block>
+      <block type="byte_logic"></block>
+    </category>
+    <category name="Env Info" colour="#5ba5a5">
+      <block type="address_environment"></block>
+      <block type="balance_environment"></block>
+      <block type="origin_environment"></block>
+      <block type="caller_environment"></block>
+      <block type="callvalue_environment"></block>
+      <block type="calldataload_environment"></block>
+      <block type="calldataloadx_environment">
+        <field name="name">40</field>
+      </block>
+      <block type="calldatasize_environment"></block>
+      <block type="calldatacopy_environment"></block>
+      <block type="codesize_environment"></block>
+      <block type="codecopy_environment"></block>
+      <block type="gasprice_environment"></block>
+      <block type="extcodesize_environment"></block>
+      <block type="extcodecopy_environment"></block>
+    </category>
+    <category name="Block Info" colour="#a55b80">
+      <block type="blockhash_block"></block>
+      <block type="coinbase_block"></block>
+      <block type="timestamp_block"></block>
+      <block type="number_block"></block>
+      <block type="difficulty_block"></block>
+      <block type="gaslimit_block"></block>
+    </category>
+    <category name="Stack" colour="#a56d5b">
+      <block type="pop_stack"></block>
+      <block type="mload_stack"></block>
+      <block type="mloadx_stack">
+        <field name="name">40</field>
+      </block>
+      <block type="mstore_stack"></block>
+      <block type="mstorex_stack">
+        <field name="addr">40</field>
+        <field name="val">0</field>
+      </block>
+      <block type="mstore8_stack"></block>
+      <block type="sload_stack"></block>
+      <block type="sloadx_stack">
+        <field name="name">40</field>
+      </block>
+      <block type="sstore_stack"></block>
+    </category>
+    <category name="Push" colour="#a5805b">
+      <block type="pushx_stack">
+        <field name="number">1</field>
+      </block>
+    </category>
+    <category name="Duplication" colour="#a5a55b">
+      <block type="dupx_swap">
+        <field name="number">1</field>
+      </block>
+    </category>
+    <category name="Swap" colour="#a5a55b">
+      <block type="swapx_swap">
+        <field name="number">1</field>
+      </block>
+    </category>
+    <category name="Flow" colour="#93a55b">
+      <block type="part_flow">
+        <field name="name">0</field>
+      </block>
+      <block type="contract_flow">
+        <field name="name">name</field>
+      </block>
+      <block type="function_flow">
+        <field name="name">name</field>
+        <field name="attr1"></field>
+        <field name="ret1"></field>
+      </block>
+      <block type="jump_flow"></block>
+      <block type="jumpi_flow"></block>
+      <block type="pc_flow"></block>
+      <block type="msize_flow"></block>
+      <block type="gas_flow"></block>
+      <block type="jumpdest_flow"></block>
+      <block type="invalid_flow"></block>
+      <block type="tag_flow">
+        <field name="name">0</field>
+      </block>
+    </category>
+    <category name="Log" colour="#5b5ba5">
+      <block type="logx_log">
+        <field name="number">1</field>
+      </block>
+    </category>
+    <category name="System" colour="#a55ba5">
+      <block type="create_system"></block>
+      <block type="call_system"></block>
+      <block type="callcode_system"></block>
+      <block type="return_system"></block>
+      <block type="revert_system"></block>
+      <block type="delegatecall_system"></block>
+      <block type="selfdestruct_system"></block>
+    </category>
+  </xml>
+
+</body>
+</html>

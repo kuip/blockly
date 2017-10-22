@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google" value="notranslate">
+  <title>Blockly Demo:</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="storage.js"></script>
+ 
+  <script src="../../blockly_compressed.js"></script>
+  <script src="../../javascript_compressed.js"></script>
+  <script src="../../blocks_compressed.js"></script>
+  
+  
+  
+  <script src="code.js"></script>
+  <script src="cblocks.js"></script>
+</head>
+<body>
+  <table width="100%" height="100%">
+    <tr>
+      <td>
+        <h1><a href="https://developers.google.com/blockly/">Blockly</a>&rlm; &gt;
+          <a href="../index.html">Demos</a>&rlm; &gt;
+          <span id="title">...</span>
+        </h1>
+      </td>
+      <td class="farSide">
+        <select id="languageMenu"></select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <table width="100%">
+          <tr id="tabRow" height="1em">
+            <td id="tab_blocks" class="tabon">...</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_javascript" class="taboff">LLL</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_evm" class="taboff">EVM</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_xml" class="taboff">XML</td>
+            <td class="tabmax">
+              <button id="trashButton" class="notext" title="...">
+                <img src='../../media/1x1.gif' class="trash icon21">
+              </button>
+              <button id="linkButton" class="notext" title="...">
+                <img src='../../media/1x1.gif' class="link icon21">
+              </button>
+              <button id="runButton" class="notext primary" title="...">
+                <img src='../../media/1x1.gif' class="run icon21">
+              </button>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="99%" colspan=2 id="content_area">
+      </td>
+    </tr>
+  </table>
+  <div id="content_blocks" class="content"></div>
+  <pre id="content_javascript" class="content"></pre>
+  <pre id="content_evm" class="content"></pre>
+  <textarea id="content_xml" class="content" wrap="off"></textarea>
+
+  <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
+    
+    <category name="Types" colour="#5ba55b">
+      
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+
+      
+      <block type="hex_types">
+        <field name="TEXT"></field>
+      </block>
+
+      <block type="l_types_blank">
+          <field name="TEXT"></field>
+        </block>
+
+      <block type="text">
+          <field name="TEXT"></field>
+      </block>
+
+      <block type="tag_types">
+          <field name="TEXT"></field>
+      </block>
+
+
+    </category>
+    <category name="Variables" colour="#A65C81" custom="VARIABLE"></category>
+    <category name="Math" colour="#5b6da5">
+      
+      
+      <block type="inline_math"></block>
+      <block type="l_math_oper">
+          <value name="VAR1">
+              <shadow type="math_number"></shadow>
+          </value>
+          <value name="VAR2">
+              <shadow type="math_number"></shadow>
+          </value>
+      </block>
+      
+      <block type="l_math_addmod">
+        <value name="VAR1">
+            <shadow type="math_number"></shadow>
+        </value>
+        <value name="VAR2">
+            <shadow type="math_number"></shadow>
+        </value>
+        <value name="VAR3">
+            <shadow type="math_number"></shadow>
+        </value>
+      </block>
+      <block type="l_math_mulmod">
+          <value name="VAR1">
+              <shadow type="math_number"></shadow>
+          </value>
+          <value name="VAR2">
+              <shadow type="math_number"></shadow>
+          </value>
+          <value name="VAR3">
+              <shadow type="math_number"></shadow>
+          </value>
+      </block>
+      
+      <block type="l_math_signextend">
+          <value name="ADDRESS">
+              <shadow type="hex_types"></shadow>
+          </value>
+          <value name="OFFSET">
+              <shadow type="math_number"></shadow>
+          </value>
+          
+      </block>
+      <block type="l_math_keccak256">
+          <value name="ADDRESS">
+              <shadow type="hex_types"></shadow>
+          </value>
+          <value name="OFFSET">
+              <shadow type="math_number"></shadow>
+          </value>
+      </block>
+      
+    </category>
+    <category name="Logic" colour="#a5935b">
+      <block type="l_logic_compare">
+          <value name="VAR1">
+              <shadow type="math_number"></shadow>
+          </value>
+          <value name="VAR2">
+              <shadow type="math_number"></shadow>
+          </value>
+      </block>
+      <block type="l_logic_andor">
+          <value name="VAR1">
+              <shadow type="math_number"></shadow>
+          </value>
+          <value name="VAR2">
+              <shadow type="math_number"></shadow>
+          </value>
+      </block>
+      <block type="l_bitwise_oper">
+          <value name="VAR1">
+              <shadow type="math_number"></shadow>
+          </value>
+          <value name="VAR2">
+              <shadow type="math_number"></shadow>
+          </value>
+      </block>
+      <block type="l_logic_isnot">
+          <value name="VAR1">
+              <shadow type="math_number"></shadow>
+          </value>
+          
+      </block>
+      
+      <block type="l_logic_not">
+          <value name="VAR1">
+              <shadow type="math_number"></shadow>
+          </value>
+      </block>
+      <block type="l_logic_iszero">
+          <value name="VAR1">
+              <shadow type="math_number"></shadow>
+          </value>
+      </block>
+      <block type="l_logic_byte">
+          <value name="VAR1">
+              <shadow type="math_number"></shadow>
+          </value>
+          <value name="VAR2">
+              <shadow type="hex_types"></shadow>
+          </value>
+      </block>
+    </category>
+    <category name="Info / Env" colour="#5ba5a5">
+        <block type="l_info_block"></block>
+        <block type="l_info_present"></block>
+     
+      <block type="l_env_balance">
+          <value name="ADDRESS">
+              <shadow type="hex_types"></shadow>
+          </value>
+      </block>
+      
+      <block type="l_env_calldataload">
+          <value name="ADDRESS">
+              <shadow type="hex_types"></shadow>
+          </value>
+      </block>
+      
+      <block type="l_env_calldatacopy">
+          <value name="TARGET">
+              <shadow type="hex_types"></shadow>
+          </value>
+          <value name="SOURCE">
+              <shadow type="hex_types"></shadow>
+          </value>
+          <value name="BYTES">
+              <shadow type="math_number"></shadow>
+          </value>
+      </block>
+      <block type="l_env_codesize"></block>
+      <block type="l_env_codecopy">
+          <value name="TARGET">
+              <shadow type="hex_types"></shadow>
+          </value>
+          <value name="SOURCE">
+              <shadow type="hex_types"></shadow>
+          </value>
+          <value name="BYTES">
+              <shadow type="math_number"></shadow>
+          </value>
+      </block>
+      <block type="l_env_gasprice"></block>
+      <block type="l_env_extcodesize">
+          <value name="ADDRESS">
+              <shadow type="hex_types"></shadow>
+          </value>
+      </block>
+      <block type="l_env_extcodecopy">
+          <value name="ADDRESS">
+              <shadow type="hex_types"></shadow>
+          </value>
+          <value name="TARGET">
+              <shadow type="hex_types"></shadow>
+          </value>
+          <value name="SOURCE">
+              <shadow type="hex_types"></shadow>
+          </value>
+          <value name="BYTES">
+              <shadow type="math_number"></shadow>
+          </value>
+      </block>
+      
+
+    </category>
+    
+    <category name="Memory" colour="#a56d5b">
+        <block type="l_stack_lit">
+            <value name="ADDRESS">
+                <shadow type="hex_types"></shadow>
+            </value>
+            <value name="VAR">
+                <shadow type="text"></shadow>
+            </value>
+        </block>
+        <block type="l_stack_set">
+            <value name="VAR">
+                <shadow type="text"></shadow>
+            </value>
+            <value name="VALUE">
+                <shadow type="math_number"></shadow>
+            </value>
+
+        </block>
+        <block type="l_stack_get">
+            <value name="VAR">
+                <shadow type="text"></shadow>
+            </value>
+        </block>
+        <block type="l_stack_with">
+            <value name="NAME">
+                <shadow type="text"></shadow>
+            </value>
+            <value name="VAL">
+                <shadow type="math_number">
+                    
+                </shadow>
+            </value>
+            <value name="CODE">
+                <block type="inline_math"></block>
+            </value>
+        </block>
+
+        <block type="l_stack_push">
+            <value name="VALUE">
+                <shadow type="math_number"></shadow>
+            </value>
+        </block>
+      <block type="l_stack_pop"></block>
+      <block type="pop_stack"></block>
+
+      <block type="dupx_swap">
+          <field name="number">1</field>
+      </block>
+      <block type="swapx_swap">
+          <field name="number">1</field>
+      </block>
+
+      <block type="l_stack_mstore">
+          
+                <value name="ADDRESS">
+                    <shadow type="hex_types"></shadow>
+                </value>
+                <value name="VAL">
+                    <shadow type="math_number"></shadow>
+                </value>
+       
+        </block>
+
+
+      <block type="mload_stack"></block>
+      <block type="mloadx_stack">
+        <field name="name">40</field>
+      </block>
+      <block type="mstore_stack"></block>
+      <block type="mstorex_stack">
+        <field name="addr">40</field>
+        <field name="val">0</field>
+      </block>
+      <block type="mstore8_stack"></block>
+      <block type="sload_stack"></block>
+      <block type="sloadx_stack">
+        <field name="name">40</field>
+      </block>
+      <block type="sstore_stack"></block>
+
+    </category>
+
+    <category name="Flow" colour="#93a55b">
+        <block type="inline_math"></block>
+        <block type="l_flow_adapt"></block>
+        <block type="l_type_flow">
+            <value name="NAME">
+                <block type="inline_math"></block>
+            </value>
+        </block>
+        <block type="l_flow_if">
+            <value name="THEN">
+                <block type="inline_math"></block>
+            </value>
+            <value name="ELSE">
+                <block type="inline_math"></block>
+            </value>
+        </block>
+        <block type="l_flow_for">
+            <value name="INIT">
+                <block type="inline_math"></block>
+            </value>
+            <value name="DO">
+                <block type="inline_math"></block>
+            </value>
+            <value name="THEN">
+                <block type="inline_math"></block>
+            </value>
+        </block>
+        <block type="l_ret_flow"></block>
+      <block type="l_def_flow"></block>
+        <block type="l_seq_flow">
+            <value name="seq">
+                <block type="inline_math"></block>
+            </value>
+        </block>
+      
+    </category>
+    <category name="Log / Comment" colour="#5b5ba5">
+        <block type="l_log_comment"></block>
+        <block type="l_log_log">
+            <value name="ADDRESS">
+                <shadow type="hex_types"></shadow>
+            </value>
+            <value name="OFFSET">
+                <shadow type="math_number"></shadow>
+            </value>
+        </block>
+      
+    </category>
+    <category name="System" colour="#a55ba5">
+        <block type="l_system_create">
+            <value name="VALUE">
+                <shadow type="math_number"></shadow>
+            </value>
+            <value name="CODE">
+                <shadow type="hex_types"></shadow>
+            </value>
+
+        </block>
+        
+     
+      <block type="call_system"></block>
+      <block type="callcode_system"></block>
+      <block type="delegatecall_system"></block>
+      <block type="l_system_return">
+        
+              <value name="ADDRESS">
+                  <shadow type="hex_types"></shadow>
+              </value>
+              <value name="OFFSET">
+                  <shadow type="math_number"></shadow>
+              </value>
+     
+      </block>
+      <block type="l_system_revert">
+
+              <value name="ADDRESS">
+                  <shadow type="hex_types"></shadow>
+              </value>
+              <value name="OFFSET">
+                  <shadow type="math_number"></shadow>
+              </value>
+ 
+      </block>
+      
+      <block type="l_system_selfdestruct">
+          <value name="ADDRESS">
+              <shadow type="hex_types"></shadow>
+          </value>
+      </block>
+    </category>
+  </xml>
+
+</body>
+</html>
