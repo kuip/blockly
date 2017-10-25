@@ -1,0 +1,180 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables></variables>
+  <block type="l_seq_flow" id="p_/G`dV/+~xohWWM@|E6" x="37" y="13">
+    <statement name="seq">
+      <block type="inline_math" id="7:(jrDo~g5x]d:|KyJN,">
+        <value name="INLINE">
+          <block type="l_def_flow" id="*T9YB5D9UVtw{mAgH/M)">
+            <field name="NAME">scratch</field>
+            <field name="ARGS"></field>
+            <value name="NAME">
+              <block type="hex_types" id="Ae]dk?3,D;$L5sHn;)a,">
+                <field name="NAME">00</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="inline_math" id="L[CN`G%B/R7Op+FO!z2j">
+            <value name="INLINE">
+              <block type="l_def_flow" id="ht*_01Y.Ris.)|)l)~M=">
+                <field name="NAME">identity</field>
+                <field name="ARGS"></field>
+                <value name="NAME">
+                  <block type="hex_types" id="!8=%z5a?3JZc)WLZgu^[">
+                    <field name="NAME">ac37eebb</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="inline_math" id="AfOJ,P*)/T?q1+gp=V;r">
+                <value name="INLINE">
+                  <block type="l_def_flow" id="N5(b^j^G1UX3(=YL/Sm)">
+                    <field name="NAME">function</field>
+                    <field name="ARGS">function-hash code-body</field>
+                    <value name="NAME">
+                      <block type="l_type_flow" id="zlh|Qp%IrDA}Zon7_CWa">
+                        <field name="FLOWTYPE">WHEN</field>
+                        <value name="PRED">
+                          <block type="l_logic_compare" id="W%=(Ot!K/?O)8enx:CNR">
+                            <field name="COMPARATOR">EQ</field>
+                            <value name="VAR1">
+                              <shadow type="math_number" id="T}5AOj,k_}Ul`k:QcE,N">
+                                <field name="NUM">0</field>
+                              </shadow>
+                              <block type="l_math_oper" id="uQI(SDgz+^yn^?gu,t6C">
+                                <field name="OPER">DIV</field>
+                                <value name="VAR1">
+                                  <shadow type="math_number" id="ny,3Nhhv]gj)?=2N,nqj">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                  <block type="l_env_calldataload" id="F5vi*S`92==g~kWYz.Er">
+                                    <value name="ADDRESS">
+                                      <shadow type="hex_types" id="7,+CvbSq*i]*=;~G?B]I">
+                                        <field name="NAME">0</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="VAR2">
+                                  <shadow type="math_number" id="0+](e*6lY=$.5;HN7C|(">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                  <block type="l_math_oper" id="+Rjo59?PKuSoBYC:xt_{">
+                                    <field name="OPER">EXP</field>
+                                    <value name="VAR1">
+                                      <shadow type="math_number" id="G+J`2LAgwRxcD-3pvif|">
+                                        <field name="NUM">2</field>
+                                      </shadow>
+                                    </value>
+                                    <value name="VAR2">
+                                      <shadow type="math_number" id="`h5vItz[hR2qS|t/y_|^">
+                                        <field name="NUM">224</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="VAR2">
+                              <shadow type="math_number" id="yNz:mu=m7Eo?P@l),k+!">
+                                <field name="NUM">0</field>
+                              </shadow>
+                              <block type="l_types_blank" id="2Kyp]aPm{,.oU3DxFw5[">
+                                <field name="TEXT">function-hash</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="NAME">
+                          <block type="inline_math" id=".9(Xhe^ejOZqUM0At?#g">
+                            <value name="INLINE">
+                              <block type="l_types_blank" id="Deu-/(1|6QFC{O]kLaM|">
+                                <field name="TEXT">code-body</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="inline_math" id="V5p?xJMe@LXi^X@8Hr`,">
+                    <value name="INLINE">
+                      <block type="l_ret_flow" id="@07ajB`wi`kIKF1ePH2P">
+                        <value name="CODE">
+                          <block type="l_flow_adapt" id="d]|fp?!ej@a+T:~7mT1~">
+                            <value name="HEAD">
+                              <block type="l_types_blank" id="Gb5q~wHfK_susy!Ju)I,">
+                                <field name="TEXT">function identity</field>
+                              </block>
+                            </value>
+                            <value name="CODE">
+                              <block type="l_seq_flow" id="FYL?yFMk}H(GIwdIaLgR">
+                                <statement name="seq">
+                                  <block type="inline_math" id="OtK.b|2YmO#`vhNUS=jk">
+                                    <value name="INLINE">
+                                      <block type="l_stack_mstore" id="NvqJz9t%,N);;,MgZ^Rz">
+                                        <value name="ADDRESS">
+                                          <shadow type="hex_types" id="kwDHC;7zfuT#-5HQBCVE">
+                                            <field name="NAME">0</field>
+                                          </shadow>
+                                          <block type="l_types_blank" id="iK?rDe|Y0I`=.83]d}QD">
+                                            <field name="TEXT">scratch</field>
+                                          </block>
+                                        </value>
+                                        <value name="VAL">
+                                          <shadow type="math_number" id="-a1xD^1g(2dk+qU-PNl]">
+                                            <field name="NUM">0</field>
+                                          </shadow>
+                                          <block type="l_env_calldataload" id="chb(lOn%O$c.mkdSy5`n">
+                                            <value name="ADDRESS">
+                                              <shadow type="hex_types" id="cno_87pSe]Q{.gCvtTi+">
+                                                <field name="NAME">04</field>
+                                              </shadow>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="inline_math" id="2%*#=v4]XeW_98TUaY=L">
+                                        <value name="INLINE">
+                                          <block type="l_system_return" id="{#6LXrmS-r,VQ1d+Y}^h">
+                                            <value name="ADDRESS">
+                                              <shadow type="hex_types" id="z,Yh~.ewO!xrPJoM7Tj-">
+                                                <field name="NAME">0</field>
+                                              </shadow>
+                                              <block type="l_types_blank" id="!d1RewuxM+ZRaw5Ea`pD">
+                                                <field name="TEXT">scratch</field>
+                                              </block>
+                                            </value>
+                                            <value name="OFFSET">
+                                              <shadow type="math_number" id=";]}1#=/QzZIO@@4r#NH2">
+                                                <field name="NUM">32</field>
+                                              </shadow>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

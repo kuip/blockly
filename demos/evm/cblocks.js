@@ -1,3 +1,5 @@
+var lpara="[", rpara="]";
+
 Blockly.Blocks['stop_math'] = {
     init: function() {
       this.appendDummyInput()
@@ -1567,7 +1569,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
   Blockly.JavaScript['mloadx_stack'] = function(block) {
     var text_name = block.getFieldValue('NAME');
     // TODO: Assemble JavaScript into code variable.
-    var code = 'mload(0x'+text_name+')\n';
+    var code = 'mload(0x'+text_name+''+rpara+'\n';
     return code;
   };
   
@@ -1581,7 +1583,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var text_addr = block.getFieldValue('addr');
     var text_val = block.getFieldValue('val');
     // TODO: Assemble JavaScript into code variable.
-    var code = 'mstore(0x'+text_addr+', 0x'+text_val+')\n';
+    var code = 'mstore(0x'+text_addr+', 0x'+text_val+''+rpara+'\n';
     return code;
   };
   
@@ -1691,7 +1693,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
   Blockly.JavaScript['sloadx_stack'] = function(block) {
     var text_name = block.getFieldValue('NAME');
     // TODO: Assemble JavaScript into code variable.
-    var code = 'sload(0x'+text_name+')\n';
+    var code = 'sload(0x'+text_name+''+rpara+'\n';
     return code;
   };
 
@@ -1704,7 +1706,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
   Blockly.JavaScript['calldataloadx_environment'] = function(block) {
     var text_name = block.getFieldValue('NAME');
     // TODO: Assemble JavaScript into code variable.
-    var code = 'calldataload(0x'+text_name+')\n';
+    var code = 'calldataload(0x'+text_name+''+rpara+'\n';
     return code;
   };
 
@@ -1735,7 +1737,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var text_name = block.getFieldValue('NAME');
     var text_address = block.getFieldValue('ADDRESS');
     // TODO: Assemble JavaScript into code variable.
-    var code = 'keccak256(0x'+text_name+', 0x'+text_address+')\n';
+    var code = 'keccak256(0x'+text_name+', 0x'+text_address+''+rpara+'\n';
     return code;
   };
 
@@ -1791,7 +1793,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var text_ret1 = block.getFieldValue('RET1');
     var statements_function = Blockly.JavaScript.statementToCode(block, 'FUNCTION');
     // TODO: Assemble JavaScript into code variable.
-    var code = 'function '+text_name+'('+text_attr1+') returns ('+text_ret1+') {\nassembly {\n'+statements_function+'}\n}\n';
+    var code = 'function '+text_name+'('+text_attr1+''+rpara+' returns ('+text_ret1+''+rpara+' {\nassembly {\n'+statements_function+'}\n}\n';
     return code;
   };
 
@@ -1858,7 +1860,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
     var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '(add '+value_var1 +' '+value_var2+')';
+    var code = '(add '+value_var1 +' '+value_var2+''+rpara+'';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];
   };
@@ -1883,7 +1885,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
     console.log(value_var1, value_var2)
-    var code = '(add '+value_var1 +' '+value_var2+')';
+    var code = lpara+'add '+value_var1 +' '+value_var2+''+rpara+'';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -1907,7 +1909,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
     var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '(sub '+value_var1 +' '+value_var2+')';
+    var code = lpara+'sub '+value_var1 +' '+value_var2+''+rpara+'';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -1931,7 +1933,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
     var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '(mul '+value_var1 +' '+value_var2+')';
+    var code = lpara+'mul '+value_var1 +' '+value_var2+''+rpara+'';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -1955,7 +1957,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
     var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '(div '+value_var1 +' '+value_var2+')';
+    var code = lpara+'div '+value_var1 +' '+value_var2+''+rpara+'';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -1979,7 +1981,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
     var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '(sdiv '+value_var1 +' '+value_var2+')';
+    var code = lpara+'sdiv '+value_var1 +' '+value_var2+''+rpara+'';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -2003,7 +2005,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
     var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '(mod '+value_var1 +' '+value_var2+')';
+    var code = lpara+'mod '+value_var1 +' '+value_var2+''+rpara+'';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -2027,7 +2029,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
     var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '(smod '+value_var1 +' '+value_var2+')';
+    var code = lpara+'smod '+value_var1 +' '+value_var2+''+rpara+'';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -2056,7 +2058,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
     var value_var3 = Blockly.JavaScript.valueToCode(block, 'VAR3', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '(addmod '+value_var1 +' '+value_var2+' '+value_var3+')';
+    var code = lpara+'addmod '+value_var1 +' '+value_var2+' '+value_var3+''+rpara+'';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -2085,7 +2087,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
     var value_var3 = Blockly.JavaScript.valueToCode(block, 'VAR3', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '(mulmod '+value_var1 +' '+value_var2+' '+value_var3+')';
+    var code = lpara+'mulmod '+value_var1 +' '+value_var2+' '+value_var3+''+rpara+'';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -2109,7 +2111,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
     var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
     var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '(exp '+value_var1 +' '+value_var2+')';
+    var code = lpara+'exp '+value_var1 +' '+value_var2+''+rpara+'';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -2131,7 +2133,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
   Blockly.JavaScript['l_logic_not'] = function(block) {
     var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '(not '+value_var1 +')';
+    var code = lpara+'not '+value_var1 +''+rpara+'';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -2152,7 +2154,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
   Blockly.JavaScript['l_logic_iszero'] = function(block) {
     var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '(iszero '+value_var1 +')';
+    var code = lpara+'iszero '+value_var1 +''+rpara+'';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
@@ -2177,7 +2179,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
         var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(lt '+value_var1 +' '+value_var2+')';
+        var code = lpara+'lt '+value_var1 +' '+value_var2+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2201,7 +2203,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
         var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(gt '+value_var1 +' '+value_var2+')';
+        var code = lpara+'gt '+value_var1 +' '+value_var2+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2225,7 +2227,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
         var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(slt '+value_var1 +' '+value_var2+')';
+        var code = lpara+'slt '+value_var1 +' '+value_var2+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2249,7 +2251,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
         var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(sgt '+value_var1 +' '+value_var2+')';
+        var code = lpara+'sgt '+value_var1 +' '+value_var2+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2273,7 +2275,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
         var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(and '+value_var1 +' '+value_var2+')';
+        var code = lpara+'and '+value_var1 +' '+value_var2+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2297,7 +2299,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
         var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(or '+value_var1 +' '+value_var2+')';
+        var code = lpara+'or '+value_var1 +' '+value_var2+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2321,7 +2323,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
         var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(xor '+value_var1 +' '+value_var2+')';
+        var code = lpara+'xor '+value_var1 +' '+value_var2+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2345,7 +2347,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
         var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(='+value_var1 +' '+value_var2+')';
+        var code = lpara+'='+value_var1 +' '+value_var2+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2369,7 +2371,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
         var value_var2 = Blockly.JavaScript.valueToCode(block, 'VAR2', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(byte'+value_var1 +' '+value_var2+')';
+        var code = lpara+'byte'+value_var1 +' '+value_var2+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2390,7 +2392,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
       Blockly.JavaScript['l_seq_flow'] = function(block) {
         var statements_seq = Blockly.JavaScript.statementToCode(block, 'seq');
         // TODO: Assemble JavaScript into code variable.
-        var code = '(seq \n'+statements_seq +')';
+        var code = lpara+'seq \n'+statements_seq +''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2416,8 +2418,8 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
         var out = '';
-        if (text_args) out='('+text_args+')';
-        var code = '(def \''+text_name+' '+out+'\n\t'+value_name+')\n';
+        if (text_args) out=lpara+''+text_args+''+rpara+'';
+        var code = lpara+'def \''+text_name+' '+out+'\n\t'+value_name+''+rpara+'\n';
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
 
@@ -2441,7 +2443,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_address = Blockly.JavaScript.valueToCode(block, 'ADDRESS', Blockly.JavaScript.ORDER_ATOMIC);
         var value_offset = Blockly.JavaScript.valueToCode(block, 'OFFSET', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(keccak256 '+value_address +' '+value_offset+')';
+        var code = lpara+'keccak256 '+value_address +' '+value_offset+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2463,7 +2465,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
       Blockly.JavaScript['l_ret_flow'] = function(block) {
         var value_code = Blockly.JavaScript.valueToCode(block, 'CODE', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(returnlll \n'+value_code +')';
+        var code = lpara+'returnlll \n'+value_code +''+rpara+'';
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
 
@@ -2521,7 +2523,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
             break;
           
         }
-        var code = '('+out+' '+value_var1 +' '+value_var2+')';
+        var code = lpara+''+out+' '+value_var1 +' '+value_var2+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2574,7 +2576,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
             break;
           
         }
-        var code = '('+out+' '+value_var1 +' '+value_var2+')';
+        var code = lpara+''+out+' '+value_var1 +' '+value_var2+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2619,7 +2621,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_address = Blockly.JavaScript.valueToCode(block, 'ADDRESS', Blockly.JavaScript.ORDER_ATOMIC);
         var value_offset = Blockly.JavaScript.valueToCode(block, 'OFFSET', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(signextend '+value_address +' '+value_offset+')';
+        var code = lpara+'signextend '+value_address +' '+value_offset+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2637,7 +2639,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
 
       Blockly.JavaScript['l_env_address'] = function(block) {
         // TODO: Assemble JavaScript into code variable.
-        var code = '(address)';
+        var code = lpara+'address)';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2655,7 +2657,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
 
       Blockly.JavaScript['l_env_caller'] = function(block) {
         // TODO: Assemble JavaScript into code variable.
-        var code = '(caller)';
+        var code = lpara+'caller)';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2673,7 +2675,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
 
       Blockly.JavaScript['l_env_origin'] = function(block) {
         // TODO: Assemble JavaScript into code variable.
-        var code = '(origin)';
+        var code = lpara+'origin)';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2695,7 +2697,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
       Blockly.JavaScript['l_env_balance'] = function(block) {
         var value_address = Blockly.JavaScript.valueToCode(block, 'ADDRESS', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(balance '+value_address+')';
+        var code = lpara+'balance '+value_address+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2713,7 +2715,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
 
       Blockly.JavaScript['l_env_callvalue'] = function(block) {
         // TODO: Assemble JavaScript into code variable.
-        var code = '(callvalue)';
+        var code = lpara+'callvalue)';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2731,7 +2733,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
 
       Blockly.JavaScript['l_env_calldatasize'] = function(block) {
         // TODO: Assemble JavaScript into code variable.
-        var code = '(calldatasize)';
+        var code = lpara+'calldatasize)';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2749,7 +2751,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
 
       Blockly.JavaScript['l_env_gasprice'] = function(block) {
         // TODO: Assemble JavaScript into code variable.
-        var code = '(gasprice)';
+        var code = lpara+'gasprice)';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2771,7 +2773,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
       Blockly.JavaScript['l_env_calldataload'] = function(block) {
         var value_address = Blockly.JavaScript.valueToCode(block, 'ADDRESS', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(calldataload '+value_address+')';
+        var code = lpara+'calldataload '+value_address+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2793,7 +2795,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
       Blockly.JavaScript['l_env_extcodesize'] = function(block) {
         var value_address = Blockly.JavaScript.valueToCode(block, 'ADDRESS', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(extcodesize '+value_address+')';
+        var code = lpara+'extcodesize '+value_address+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2821,7 +2823,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_source = Blockly.JavaScript.valueToCode(block, 'SOURCE', Blockly.JavaScript.ORDER_ATOMIC);
         var value_bytes = Blockly.JavaScript.valueToCode(block, 'BYTES', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(calldatacopy '+value_target+' '+value_source+' '+value_bytes+' )';
+        var code = lpara+'calldatacopy '+value_target+' '+value_source+' '+value_bytes+' )';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2849,7 +2851,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_source = Blockly.JavaScript.valueToCode(block, 'SOURCE', Blockly.JavaScript.ORDER_ATOMIC);
         var value_bytes = Blockly.JavaScript.valueToCode(block, 'BYTES', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(codecopy '+value_target+' '+value_source+' '+value_bytes+' )';
+        var code = lpara+'codecopy '+value_target+' '+value_source+' '+value_bytes+' )';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2880,7 +2882,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_source = Blockly.JavaScript.valueToCode(block, 'SOURCE', Blockly.JavaScript.ORDER_ATOMIC);
         var value_bytes = Blockly.JavaScript.valueToCode(block, 'BYTES', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(extcodecopy '+value_address+' '+value_target+' '+value_source+' '+value_bytes+' )';
+        var code = lpara+'extcodecopy '+value_address+' '+value_target+' '+value_source+' '+value_bytes+' )';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2898,7 +2900,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
 
       Blockly.JavaScript['l_env_codesize'] = function(block) {
         // TODO: Assemble JavaScript into code variable.
-        var code = '(codesize)';
+        var code = lpara+'codesize)';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2920,7 +2922,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
       Blockly.JavaScript['l_block_blockhash'] = function(block) {
         var value_block = Blockly.JavaScript.valueToCode(block, 'BLOCK', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(blockhash '+value_block+')';
+        var code = lpara+'blockhash '+value_block+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2938,7 +2940,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
 
       Blockly.JavaScript['l_block_coinbase'] = function(block) {
         // TODO: Assemble JavaScript into code variable.
-        var code = '(coinbase)';
+        var code = lpara+'coinbase)';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2956,7 +2958,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
 
       Blockly.JavaScript['l_block_timestamp'] = function(block) {
         // TODO: Assemble JavaScript into code variable.
-        var code = '(timestamp)';
+        var code = lpara+'timestamp)';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2974,7 +2976,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
 
       Blockly.JavaScript['l_block_number'] = function(block) {
         // TODO: Assemble JavaScript into code variable.
-        var code = '(number)';
+        var code = lpara+'number)';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -2992,7 +2994,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
 
       Blockly.JavaScript['l_block_difficulty'] = function(block) {
         // TODO: Assemble JavaScript into code variable.
-        var code = '(difficulty)';
+        var code = lpara+'difficulty)';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3010,7 +3012,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
 
       Blockly.JavaScript['l_block_gaslimit'] = function(block) {
         // TODO: Assemble JavaScript into code variable.
-        var code = '(gaslimit)';
+        var code = lpara+'gaslimit)';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3055,7 +3057,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
           
           
         }
-        var code = '('+out+' '+value_pred +' '+statements_name+')';
+        var code = lpara+''+out+' '+value_pred +' '+statements_name+''+rpara+'';
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
 
@@ -3084,7 +3086,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var statements_then = Blockly.JavaScript.statementToCode(block, 'THEN');
         var statements_else = Blockly.JavaScript.statementToCode(block, 'ELSE');
         // TODO: Assemble JavaScript into code variable.
-        var code = '(if '+value_pred+' '+statements_then+' '+statements_else+')\n';
+        var code = lpara+'if '+value_pred+' '+statements_then+' '+statements_else+''+rpara+'\n';
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
 
@@ -3127,7 +3129,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
           
           
         }
-        var code = '('+out+')';
+        var code = lpara+''+out+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3166,7 +3168,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
           
           
         }
-        var code = '('+out+' '+value_var1+' '+value_var2+')';
+        var code = lpara+''+out+' '+value_var1+' '+value_var2+''+rpara+'';
         
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
@@ -3205,7 +3207,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
           
           
         }
-        var code = '('+out+')';
+        var code = lpara+''+out+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3225,7 +3227,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
       Blockly.JavaScript['l_stack_pop'] = function(block) {
         var dropdown_number = block.getFieldValue('number');
         // TODO: Assemble JavaScript into code variable.
-        var code = '(pop '+dropdown_number+')';
+        var code = lpara+'pop '+dropdown_number+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3246,7 +3248,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
       Blockly.JavaScript['l_logic_isnot'] = function(block) {
         var value_var1 = Blockly.JavaScript.valueToCode(block, 'VAR1', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(! \n'+value_var1+')';
+        var code = lpara+'! \n'+value_var1+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3282,7 +3284,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
           
           
         }
-        var code = '('+out+' '+value_var1 +' '+value_var2+')';
+        var code = lpara+''+out+' '+value_var1 +' '+value_var2+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3307,7 +3309,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_address = Blockly.JavaScript.valueToCode(block, 'ADDRESS', Blockly.JavaScript.ORDER_ATOMIC);
         var value_var = Blockly.JavaScript.valueToCode(block, 'VAR', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(lit '+value_address+' '+value_var+')';
+        var code = lpara+'lit '+value_address+' '+value_var+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3332,7 +3334,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_var = Blockly.JavaScript.valueToCode(block, 'VAR', Blockly.JavaScript.ORDER_ATOMIC);
         var value_value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(set '+value_var+' '+value_value+')';
+        var code = lpara+'set '+value_var+' '+value_value+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3361,7 +3363,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC);
         var statements_code = Blockly.JavaScript.statementToCode(block, 'CODE');
         // TODO: Assemble JavaScript into code variable.
-        var code = '(with '+value_name+' '+value_val+' '+statements_code+')';
+        var code = lpara+'with '+value_name+' '+value_val+' '+statements_code+''+rpara+'';
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
 
@@ -3396,7 +3398,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var statements_do = Blockly.JavaScript.statementToCode(block, 'DO');
         var statements_then = Blockly.JavaScript.statementToCode(block, 'THEN');
         // TODO: Assemble JavaScript into code variable.
-        var code = '(if '+statements_init+' '+value_pred+' '+statements_then+' '+statements_do+')\n';
+        var code = lpara+'if '+statements_init+' '+value_pred+' '+statements_then+' '+statements_do+''+rpara+'\n';
         return code;
       };
 
@@ -3416,7 +3418,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
       Blockly.JavaScript['l_stack_get'] = function(block) {
         var value_var = Blockly.JavaScript.valueToCode(block, 'VAR', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(get '+value_var+')';
+        var code = lpara+'get '+value_var+''+rpara+'';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3445,7 +3447,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var text_topics = block.getFieldValue('TOPICS');
         var topics = text_topics.split(",")
         // TODO: Assemble JavaScript into code variable.
-        var code = '(log'+topics.length+' '+value_address+' '+value_offset+')\n';
+        var code = lpara+'log'+topics.length+' '+value_address+' '+value_offset+''+rpara+'\n';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3470,7 +3472,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
         var value_code = Blockly.JavaScript.valueToCode(block, 'CODE', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(create '+value_value+' '+value_code+')\n';
+        var code = lpara+'create '+value_value+' '+value_code+''+rpara+'\n';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3495,7 +3497,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_address = Blockly.JavaScript.valueToCode(block, 'ADDRESS', Blockly.JavaScript.ORDER_ATOMIC);
         var value_offset = Blockly.JavaScript.valueToCode(block, 'OFFSET', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(return '+value_address+' '+value_offset+')\n';
+        var code = lpara+'return '+value_address+' '+value_offset+''+rpara+'\n';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3520,7 +3522,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_address = Blockly.JavaScript.valueToCode(block, 'ADDRESS', Blockly.JavaScript.ORDER_ATOMIC);
         var value_offset = Blockly.JavaScript.valueToCode(block, 'OFFSET', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(revert '+value_address+' '+value_offset+')\n';
+        var code = lpara+'revert '+value_address+' '+value_offset+''+rpara+'\n';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3542,7 +3544,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
       Blockly.JavaScript['l_system_selfdestruct'] = function(block) {
         var value_address = Blockly.JavaScript.valueToCode(block, 'ADDRESS', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(selfdestruct '+value_address+')\n';
+        var code = lpara+'selfdestruct '+value_address+''+rpara+'\n';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3586,7 +3588,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_head = Blockly.JavaScript.valueToCode(block, 'HEAD', Blockly.JavaScript.ORDER_ATOMIC);
         var value_code = Blockly.JavaScript.valueToCode(block, 'CODE', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '('+value_head+' '+value_code+')\n';
+        var code = lpara+''+value_head+' '+value_code+''+rpara+'\n';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3630,7 +3632,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         var value_address = Blockly.JavaScript.valueToCode(block, 'ADDRESS', Blockly.JavaScript.ORDER_ATOMIC);
         var value_val = Blockly.JavaScript.valueToCode(block, 'VAL', Blockly.JavaScript.ORDER_ATOMIC);
         // TODO: Assemble JavaScript into code variable.
-        var code = '(mstore '+value_address+' '+value_val+')\n';
+        var code = lpara+'mstore '+value_address+' '+value_val+''+rpara+'\n';
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Blockly.JavaScript.ORDER_ATOMIC];
       };
@@ -3665,7 +3667,7 @@ Blockly.JavaScript['stop_math'] = function(block) {
         if (event.type == Blockly.Events.BLOCK_MOVE &&
             event.element == 'comment' &&
             !event.oldValue && event.newValue) {
-          alert('here')
+          alert('here');
           
         }
       }
