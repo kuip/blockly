@@ -490,13 +490,32 @@ Code.runJS = function() {
     }
   };
   var code = Blockly.JavaScript.workspaceToCode(Code.workspace);
+
+  var myInterpreter = new Interpreter(code, initApi);
+  myInterpreter.run();
+
+  /*
   Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
   try {
     eval(code);
   } catch (e) {
     alert(MSG['badCode'].replace('%1', e));
   }
+  */
 };
+
+
+function initApi(interpreter, scope) {
+  // Add an API function for highlighting blocks.
+  var wrapper = function(id) {
+    id = id ? id.toString() : '';
+    return interpreter.createPrimitive(workspace.highlightBlock(id));
+  };
+  interpreter.setProperty(scope, 'highlightBlock',
+      interpreter.createNativeFunction(wrapper));
+}
+
+
 
 /**
  * Discard all blocks from the workspace.
